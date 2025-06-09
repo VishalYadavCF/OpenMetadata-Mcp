@@ -1,6 +1,12 @@
 package com.redcat.tutorials.openmetadatamcpserver;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import feign.Feign;
+import feign.form.FormEncoder;
+import feign.jackson.JacksonDecoder;
+import feign.jackson.JacksonEncoder;
+import feign.okhttp.OkHttpClient;
+import feign.slf4j.Slf4jLogger;
 import org.openmetadata.client.ApiClient;
 import org.openmetadata.schema.security.client.OpenMetadataJWTClientConfig;
 import org.openmetadata.schema.services.connections.metadata.AuthProvider;
@@ -34,7 +40,9 @@ public class AppConfig {
 
     @Bean
     public OpenMetadata openMetadata() {
-        return new OpenMetadata(openMetadataServerConnection());
+        OpenMetadata openMetadata = new CustomOpenMetadata(openMetadataServerConnection(), false);
+        openMetadata.initClient(openMetadataServerConnection());
+        return openMetadata;
     }
 
     @Bean

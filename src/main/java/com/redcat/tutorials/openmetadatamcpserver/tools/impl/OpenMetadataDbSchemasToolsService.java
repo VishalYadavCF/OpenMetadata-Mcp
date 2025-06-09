@@ -33,7 +33,7 @@ public class OpenMetadataDbSchemasToolsService extends OpenMetadataToolsService 
     @Tool(name = "export_database_schema", description = "Export database schema in CSV format")
     public String exportDatabaseSchema(String name, Boolean recursive) {
         try {
-            return dbSchemasApi.exportDatabaseSchema(name, recursive);
+            return dbSchemasApi.exportDatabaseSchema(name);
         } catch (Exception e) {
             return "Error exporting database schema: " + e.getMessage();
         }
@@ -42,7 +42,7 @@ public class OpenMetadataDbSchemasToolsService extends OpenMetadataToolsService 
     @Tool(name = "export_database_schema_async", description = "Export database schema in CSV format asynchronously")
     public String exportDatabaseSchemaAsync(String name) {
         try {
-            return dbSchemasApi.exportDatabaseSchema(name, true);
+            return dbSchemasApi.exportDatabaseSchema(name);
         } catch (Exception e) {
             return "Error exporting database schema asynchronously: " + e.getMessage();
         }
