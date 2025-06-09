@@ -84,3 +84,8 @@ This project is for educational/tutorial purposes. See [OpenMetadata](https://gi
 
 ## Author
 VishalYadavCF a.k.a (Gato_Malo)
+
+## Example Prompt to Use For Better Effectivness:
+```text
+Yet to decide
+```
